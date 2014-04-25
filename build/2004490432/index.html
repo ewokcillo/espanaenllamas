@@ -13,10 +13,13 @@
 
 <script type="text/javascript">
 
-  var map = L.map('map').setView([ 41.77123100, -6.34081400], 16);
-  var mapquestLayer = new L.TileLayer('http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {maxZoom: 14,attribution: 'attribution [...]', subdomains: ['otile1','otile2','otile3','otile4']});
+  var map = L.map('map').setView([ 41.77123100, -6.34081400], 12);
+
+  var mapquestLayer = new L.TileLayer('http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {maxZoom: 12,attribution: 'attribution [...]', subdomains: ['otile1','otile2','otile3','otile4']});
+
   map.addLayer(mapquestLayer);
-  var marker = L.marker([-6.34081400,41.77123100]).addTo(map);
+
+  L.marker([41.77123100,-6.34081400]).addTo(map);
 
 </script>
 
