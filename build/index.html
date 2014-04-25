@@ -21859,7 +21859,7 @@
 <script src="static/leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
 <script type="text/javascript">
   var map = L.map('map').setView([40.2085,-3.713], 6);
-  var mapquestLayer = new L.TileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', { maxZoom: 18, attribution: 'Data, imagery and map information provided by <a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> and contributors.', subdomains: ['otile1','otile2','otile3','otile4'] });
+  var mapquestLayer = new L.TileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', { maxZoom: 10, attribution: 'Data, imagery and map information provided by <a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> and contributors.', subdomains: ['otile1','otile2','otile3','otile4'] });
   map.addLayer(mapquestLayer);
 
      var data = {
@@ -42018,8 +42018,8 @@
     };
 
 
-var markers = L.markerClusterGroup();
-var dataLayer = L.geoJson(data, {
+var markers = new L.markerClusterGroup();
+var dataLayer = new L.geoJson(data, {
                 onEachFeature: function(feature, layer) {
                     layer.bindPopup(
                         '<a href="' + feature.properties.id + '/">' +
@@ -42032,9 +42032,9 @@ var dataLayer = L.geoJson(data, {
 
 markers.addLayer(dataLayer);
 
-map.addLayer(markers);		// add it to the map
-//map.fitBounds(markers.getBounds()); //set view on the cluster extent
+map.fitBounds(markers.getBounds()); //set view on the cluster extent
 
+map.addLayer(markers);		// add it to the map
 
 
 </script>
